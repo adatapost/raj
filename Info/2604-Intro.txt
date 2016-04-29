@@ -1,0 +1,429 @@
+1. The .NET Framework
+=====================================================================================================
+
+What is ".NET"?
+  
+  .NET is a suite of tools & technologies -- Compilers/Languages, IDE (Integrated Development Environment - Visual Studio - Community, Ultimate etc, Open Source IDE - Visual Studio Code), WPF, ASP.NET, WWF, WCF, WinPhone, Runtime and many more.
+
+Whay is ".NET Framework"?
+
+  Basically a "Framework" is composed of some abstract components (independent) through which we can
+  develop, deploy and execute the applications/programs. The Operating System is in fact a "framework"   - we can program via any language, uses OS library and OS memory managers. So the OS is our low level
+  framework and we need to use "C/C++" language in order to program the code.
+
+  The .NET Framework is an abstract tier installed upon the OS and it expose the simplicity of
+  underlying OS functions via class libraries. The .NET Framework also have a runtime environment which   prepares a program for the execution. Note that the .NET framework cannot execute the program but it
+  prepares it for the exeuction -- only OS can execute the program.
+
+  Why we've to use ".NET Framework or other frameworks" instead of OS?
+  ----------------------------------------------------------------------
+  The very first answer is "Portability of code". The code written for a "OS" cannot be executed on
+  another OS directly -- we need to add some changes and recompile each time.
+
+  Secondly, lack of standard naming conventions and functions -- In OS, each function is exposed via
+  function ordinal (number).
+
+  The OS instructions set is known as "Native instruction set" and it execute only those program having
+   "Native" instructions.
+
+  The .NET Framework uses another approach to overcome these issues
+
+            via following tools & technologies:
+
+                   1. Programming Language Standard -- Commont Language
+                   2. Common Library and
+                   3, Common Runtime
+
+  The .NET Framework is composed of three components (there are many concepts and theories added into
+  the .NET Framework architechure):
+
+    1. CLI - Common Language Infrastructure 
+    2. CTS - Commont Types System
+    3. CLR - Common Language Runtime
+
+ What is IoC - Inversion of Control?
+ ------------------------------------
+ It is well-known theory behind every "Framework" -- Each and every frameworks are designed using IoC
+ theory -- The IoC theory tells "Don't call us, we will call you". The IoC is also known as  "Dependencies Injection - DI"
+
+
+ CLI   Common Language Infrastrucutre
+ ====
+
+ This is the "STANDARD" for everyone - who wants to use the .net framework, programmers, library  writers, tools vendors and those who develop components for the .net framework.
+
+ The CLI describes how to write a code? how to call a function? -- It means it has rules governing from
+  A to Z.
+
+ For example, the CLS - Common Language Specification is a sub-standard of "CLI" which explain the  nature of programming language. The C# Language is desinged via CLS and its standard is known as 
+ ECMA Standard (European Computer Merchant Association).
+
+ STANDARD describes:
+
+    1. How to name a variable?
+    2. How to create a function?
+    3. How many times we can add a block inside anoter block
+    4. Where to define a class/interface and so on.
+
+ The CLI, in fact, a collection of "sepficiations" -- collection of rule books. For example, to learn  rules about programming language, we need to use the CLS or C# Language specification -- is a doc file  and we can download from microsoft website.
+
+ There are other specifciations for "libraries - CTS", and "runtime - CLR". There are different CTS and  CLRs for different OS.
+
+ We've Microsoft .NET Framework whose CTS and CLR written for "Windows OS". However there are other CTS and CLR for Mac OS or Linux/Unix and these CTS and CLR developed by third party or open source community -- For example, "Mono" is .Net Framework for Linux and MacOS and it is created by the OPEN SOURCE Community. Xamrin is another commercial company which offers a way to develop cross platform mobile application -- IOS, Androdi and WinPhone using C# language. Xamrin also uses "Mono" platform.
+
+
+ The .NET Framework now comes with two flavor:
+
+    1. Microsoft Product and 
+    2. Open source product - https://www.dotnetfoundation.org/
+
+
+ What is "Common Language" Or What is "Common" in "Comman Language"?
+
+ Microsoft has introduced a compiler-intermediate language that is similar to assebly language and this intermediate language is known as "MSIL - Microsoft Intermediate Language" or "IL - Intermediate Language". This is a language for "C#, VB.NET and many more languages which conforms the CLS".
+
+VB.NET, C#, MC++ (Managed C++), F#, Python.NET, Ruby, etc are CLS Compliant languages.
+
+When we compile the C# program (any other CLS Compilant language code), the comipler generate IL code of C# (other languages) instructions and save them into a file called "Assembly file".
+
+ |------------|                       |-------------------|
+ | C# Program | ---> C# Compiler ---> | MSIL Instructions |
+ |------------|                       | (.NET Assembly)   |              
+                                      | (Managed Code)    |
+				      | .EXE or .DLL      |
+                                      |-------------------|                    
+                                             ||
+                                             ||  MSIL instructions are not interpreted or executed
+				             ||  directly by the OS (Linux/Unix/Mac/Win)
+                                             \/
+                                      |--------------------|
+                                      | CLR & Its Serivces |  Convert MSIL instructions to 
+                                      | For Win/Linux/Mac  |  OS or Native Instructions
+                                      |--------------------|
+                                             ||
+                                             ||
+                                             \/
+                                      |---------------------|
+                                      | OS-Linux/Win/Mac    |
+                                      |---------------------|
+		
+
+ CTS  Common Types System 
+ ===
+ Common Types System is an object-oriented class library for CLS-compliant languages. In fact the CLS- Compliant language do not have / own datatypes. 
+ There are varities of datatypes in CTS and they are falls into two groups based upon their usage or  application.
+
+    1. Base Class Library  - BCL- or Base class library
+       This is a very foundation class library which includes:
+              Primitive (Simple types - char, int, float ....),
+              Device Input Output  - Harkdisk, Memory, Network, Cipher/Crypto, Zip/Unzip
+              Text Encoding/Decoding - ANSI, UTF (Universal Text Format)
+              Network API 
+              Zip/Unzip - Deflect API 
+              Thread, Task, Process
+              Collection Framework
+    2. Extended Class Library 
+       This class library uses "BCL" to define application specific API.
+              1. ADO.NET
+              2. XML.NET
+              3. ASP.NET 
+              4. WinForm API
+              5. WPF - Window Presentation Foundation (Alternative to WinForm)
+              6. LINQ - Language Integrated Query
+              7. WCF 
+              
+ UTF - Universal Text Format
+ ----------------------------
+ There are two main text encoding schemes - ANSI (For English Charset) and UTF (For English & Non- English CharSet)
+
+ In Databases - Oracle, MSSQL etc, NCHAR, NVARCHAR, NTEXT datatypes are used to denote that they
+ support UTF scheme. CHAR, VARCHAR and TEXT supports ANSI ONLY. 
+ Here, N in NCHAR, NVARCHAR or NTEXT is "National" or "National CharSet".
+
+ ANSI Scheme uses "7 bits" to store char (English).
+ UTF-8 Scheme uses "8" bits to store a full or partial char
+ UTF-16 scheme uses "16" bits to store full or partial char
+
+ [US & Canada -- All official documents are recoded into UTF-16 scheme] 
+ In C/C++,  National char is called "Wide" char.
+
+ 
+
+ All CTS are packaged into ".net assemblies" -- .DLL files (Dynamic Link Library) and most of them are
+ installed under GAC - Global Assembly Cache (x:\Windows\Assembly) 
+
+ GAC is a library bank or Repository which contains "global" assemblies -- assemblies which are used
+ without copying them into current project.
+
+ CLR  Common Language Runtime
+ ===
+ The "CLR" is a managed runtime environment of .net framework which is itself a collection of number of runtime services including -- loading of classes, compilation of code, allocating/decallcatin memory, manage/control the threads/processes and many more...
+
+ In fact CLR is a "Stack of services" and these services are:
+
+    1. Class loader service (Type loader) - This services is responsible to fetch classes (MSIL code)
+					    from the disk or network and load them into RAM.
+
+    2. Class verifier service            - This service verify the MSIL instructions which are already
+					   loaded by the class loader. It examines instructions whether
+					   they are male-formed or not.
+    3. Compilation Service 
+        Or
+       Just-In-Time compiler service     - This service convert MSIL instructions into Native 					   instructions with the help of "compiler services".
+					   There are two types of compilers :
+                                             1. JIT compiler - This is highly optimized compiler and
+						it compiles those instructions which are really used
+						into the program.
+                                             2. Ngen - Native compiler - This compiler generate 
+						Native code from MSIL for an entire assembly.
+
+						[Note: ngen.exe is a separate tool under HOME of
+						 .net framework]
+   +-----------------------------------------------------+
+   | HOME of .net framework: x:\Windows\Microsoft.NET    |
+   +-----------------------------------------------------+
+
+  4. Memory Manager Service              - This service continously allocate memory for data &
+					   instructions.
+                                           This service uses "Stack" & "Heap" memory architrectures
+					   to represent the data.
+					  
+	There are number of memory managers (programs) which are statrted when we launch the program.
+        When we start/run a program, memory manager allocate 1 MB RAM for each .net program and this
+        1 MB RAM area is used for the following purposes:
+              1. Method call (to call a function)
+              2. Local variables
+              3. Method/function parameters
+              4. Return datavalue
+       The behaviour of this 1MB RAM is a Stack  - LIFO - that's why this 1 MB RAM area is called
+       "Stack Frame Memory".
+
+     [NOTE: Stack & Heap Frame memory architecture is common for all programming language]
+
+      The deallocation of used "STack" memory is controlled by the "Memory Managers" -- It means
+      memory managers allocate & deallocate the "Stack Frame".
+
+
+      When we need more memory or our data are not fitted into "Stack Memory" then we've to request
+      the memory manager from "more" memory using "new" keyword.   This kind of allocation
+      is called "Heap Frame" memory. The size of "Heap" can be vary from 1 byte to 1 GBm, 4GB, 8GB etc.
+
+
+       It is important to note here that the "Memory Manager" allocates the "Heap" but they are not
+       responsible to deallocation. For deallocation of "Heap", a service called "Garbage Collector" 
+      is used.
+
+ 5. Grabage collector - GC - is a service of CLR which continiously examine the "RAM", find the           unreferences (Lost addresses) Heap and them reclaim or release them.
+
+     NOTE: GC cannot reclaim the STACK Frame memory.
+
+ 6. Type safety checking service         This service ensure that proper data is to be stored into 					 memory.
+
+					 This service examines type safety verification at the time of
+					 compilation as well as program execution.
+
+					This feature helps the developer to assign proper values/data
+					so our program cannot aborted abruptly due to incorrect data.
+
+					Type safety ensure that a datatype must store exact value that
+					it belongs to.
+
+						e.g float no = 10.00; is wrong.. because 10.10 is
+					considered as "double" (all programming) and "datatype of no"
+					is float. (Solution..  float no = 10.00f; )
+					
+	A computer language which support type checking at compilation and runtime is known as
+	"Statically Typed Check Language".
+
+7.  Version and con-instance execution   This service examine the version of "TYPES - DataTypes" used
+					 in a program and ensure that the "loader" service loads
+					 appropriate version of TYPES.
+
+					 This service also check the version of "program" or "assembly"
+					 before executing the code.
+
+8. Inter Operability - InterOp          This servce is responsbile to run those code which are not
+					created using .net  framework.
+				
+                                        Code that is "unmanaged" (code that is not created as CLR 					compliant) is executed via InterOpe service.
+					C/C++ prgoram are executed via InterOp.
+
+ CTS - Details
+ =============
+ Commond TYPES System. TYPES stands for "Data Type". As per memory architecture, CTS has two category
+ of datatypes/TYPES.
+
+ 1. Value Types and
+ 2. Reference Type
+
+ Value TYPES
+ ------------     1. Types having fixed size (Length).
+                  2. Structure and Enum are two types of datatype falls under this "Value TYPES".
+			[All primitive types are structure - int, char, byte, long , bool etc]
+                  3. Value TYPES can use "STack" as well as "Heap" frame memory.
+                  4. Value TYPES variable must hold the exact value that they represent. Value Type
+                     variable must be initialized or assigned before it is used.
+		
+ Reference TYPES
+ ----------------
+                  1. TYPES having varying size (length).
+                  2. Class, Interface, Array and Delegate are four Reference TYPES.
+                  3. They always uses "Heap" frame.
+                  4. Referene TYPES variables store memory address (Or Memory reference). Reference                      variable might contains null (No memory) or memory reference.
+
+
+ NOTE: Value TYPES which are used with "Reference TYPES" then they can use "Heap" memory.
+
+       Value TYPES uses "Stack" memory when they are used as:
+                  1. Local variable
+                  2. Method parameter and
+                  3. Return type
+
+
+ In C# language, the "reference types" are called "Nullable Types" -- because we can store null that
+ indicate the absence of object (memory). Value Types are "Non Nullable".
+
+    e.g   int n  = 10;  OK
+          int m  = null; <--ERROR VALUE TYPE Cannot hold "null".
+
+ In Databases, we have seen number of examples where some of the fields contains null (database null  indicates that the value is missing). 
+
+ So, in Database operations (ADO.NET or Entity Framework) and for other purposes, CTS has introduce a   new type called "Nullable" which allows Non-Nullable datatypes to store null.
+
+         Example:  In C#,  int? n = null;   datatype? varName; Syntax create a nullable of "int".
+
+
+ The CTS Artchitecture
+ -------------------------------------------------------
+ How CTS is designed? How many CTS are hidden from the users and how many of them are avaiable to the  developers and so on are understood by the learning architecture of CTS.
+
+ The Namespace
+ =============
+ 
+ The "Namespace" is a mechanism to create a "group" of related TYPES and keep one group of TYPES
+ distincts from another group of TYPES.
+
+ 1. To avoid name duplication -- to prevent name mangling.   It is impossible to create same named
+     TYPE into a application if namespace is not used.
+ 2. To hide or show the entities (TYPES) and this kind feature is called "Abstraction". To expose      necessary things or items and hide the complexity is known as "Abstraction".
+
+
+ Naming Convention  Namespace name should referect the unique name of your product/company. Normally
+ ================== the "Namespace" should be "domain name".
+                    e.g  Gmail.com
+
+                    Use "Proper" case to name the namespace.
+
+                     e.g  My.Application  Or MyApplication
+                   
+                   Namespace uses . (DOT) member access operator to create a sub-namespace and also 
+                   access the namespace elements.
+
+
+                  In CTS, the "System" is a resevered namespace and it contains all necessary classes
+                  including:
+                    1. Base classes (IO, SimpleType,Crypto, Network) and so on
+                    2. Extended classes also uses "Base" classes.
+
+                  The "System" is also known as "ultimate" namespace.
+
+  The Types      The are five main types - struct, enum, class, interface and delegate. Using these
+  =============  types there are two more reference types: Array and Attribute.
+
+   struct and enum are keywords and used to create Value TYPES.
+
+   class, interface, delegate and attribute keywords are used to create reference types.
+
+   [Note: Array in .net is a class]
+
+  1. struct  : To create a value type -- having fixed length datatype.
+               All primitive types including char, byte, int, short, long, bool, DateTime etc
+  2. enum    : To create integral constants. e.g Color.Red 
+                                                 Month.Jan
+                                                 Brushes.Red, Pens.Blue
+                To assign a symbolic name to the integer value.
+     enum Age 
+     {
+        Manish  = 30,
+        Ravish,
+        Mohan,
+        Suresh = 45,
+        Manu = 50
+     } 
+   Age.Manu <-- symbolic name 
+
+ 3. class : To create a new datatype which supports inheritance, polymorphism and abstraction.
+            Note that the value types (struct & enum) don't support inheritnace.
+ 4. interface : To create an abstraction -- separate the code from its implementation.
+ 5. delegate  : Delegate type create function pointer -- a memory reference variable which can
+                store memory addres/reference of function.
+                =>All kind of events (GUI, NON-GUI) are defined with the help of delegate.
+                =>To create anonymous (nameless) function and lambda expressions.
+ 6. attribute  : To instruct the C# compiler or CRL via code.
+
+                 [Table] <-------------- Attribute
+                 public class Emp
+                  {
+                    [Id]  <--------------Attribute
+                    public int Id {get;set;}
+                  }
+  Naming conventions for Type Names
+  ====================================
+  1. Capitalize the first letter of each word. 
+     TheRedSun -- valid
+     Theredsun - wrong
+  2. Never use _ underscore
+     The_Red_Sun --- wrong
+      
+                     
+ The Primitive or Simple TYPES - Simple types are value types
+ ------------------------------------------------------------------------------------
+ The primitive or simple types are defined under the "System" namespace.
+
+ CTS Name             C# Name (Alias)               Size (Bytes)
+ ---------------------------------------------------------------------
+ System.Byte		byte  (unsigned)			1
+ System.SByte		sbyte 					1
+
+ System.Int16           short					2
+ System.UInt16		ushort					2
+
+ System.Int32		int					4
+ System.UInt32		uint					4
+
+ System.Int64           long					8
+ System.UInt64		ulong					8
+
+ System.Char		char					2 (Unicode or UTF)
+ 
+                                                               ----|
+ System.Single          float					4  | Due to inacurate result
+ System.Double          double					8  | don't use with business app
+                                                               ----|
+
+ System.Decimal 	decimal					14 Always use decimal
+ 
+ System.Bool		bool					Not available but we've to store
+					                        true or false value.
+ 
+ System.DateTime	System.DateTime				8
+
+
+                                                               
+ The ultimate super class   System.Object
+ --------------------------
+
+ The "System.Object" is automatical super class of all classes including struct, enum, class, in-build library classes or user-defined classes.
+
+class Hello {}  
+Is equivalent to
+class Hello : System.Object {}
+
+The "" - System.String class
+--------------------------------
+This is the most commonly used class to represent the strings.
+
+CTS Name			Alias				Size 
+System.String			string				Not avaiable 
+Ssytem.Object			object				Not available
+
